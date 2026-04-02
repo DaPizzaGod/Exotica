@@ -4,6 +4,8 @@ extends State
 @export var jump: State
 @export var fall: State
 
+var direction: float
+
 @export var ground_speed: float
 func check_input(_event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
