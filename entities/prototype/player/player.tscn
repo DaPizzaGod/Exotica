@@ -38,7 +38,7 @@ idle = NodePath("../Idle")
 jump = NodePath("../Jump")
 fall = NodePath("../Fall")
 max_speed = 350.0
-acceleration = 1500.0
+acceleration = 10000.0
 metadata/_custom_type_script = "uid://d1kimhp5gr6wj"
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1640686531 node_paths=PackedStringArray("move", "idle", "fall")]
@@ -55,3 +55,5 @@ move = NodePath("../Move")
 idle = NodePath("../Idle")
 fall_movement_speed = 400.0
 metadata/_custom_type_script = "uid://d1kimhp5gr6wj"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=323139327]
