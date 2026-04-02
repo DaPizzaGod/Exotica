@@ -10,6 +10,7 @@
 size = Vector2(18, 14)
 
 [node name="Player" type="CharacterBody2D" unique_id=1013827000]
+collision_mask = 2
 script = ExtResource("1_73j8v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=634492247]
@@ -18,16 +19,14 @@ texture = ExtResource("1_r2bvf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1101014035]
 shape = SubResource("RectangleShape2D_r2bvf")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1977662029]
+[node name="StateMachine" type="Node" parent="." unique_id=1977662029 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_hsdm8")
+starting_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1002591687]
 script = ExtResource("4_pwcx5")
 
-[node name="Move" type="Node" parent="StateMachine" unique_id=1511691364]
-
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1640686531]
 script = ExtResource("5_c8k1s")
 jump_force = 1000.0
-
-[node name="Fall" type="Node" parent="StateMachine" unique_id=1976812037]
+air_movement_speed = 600.0
