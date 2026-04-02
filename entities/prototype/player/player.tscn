@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://idqb7b83ywl0"]
+
+[ext_resource type="Script" uid="uid://blqrlj6585nas" path="res://entities/prototype/player/player.gd" id="1_73j8v"]
+[ext_resource type="Texture2D" uid="uid://dfblpy0bwqwoe" path="res://entities/prototype/player/player_rectangle.png" id="1_r2bvf"]
+[ext_resource type="Script" uid="uid://cnrk0nva2gm70" path="res://entities/prototype/player/state_machine.gd" id="3_hsdm8"]
+[ext_resource type="Script" uid="uid://cdsgadudm0w76" path="res://entities/prototype/player/idle.gd" id="4_pwcx5"]
+[ext_resource type="Script" uid="uid://chx470pcvta8v" path="res://entities/prototype/player/jump.gd" id="5_c8k1s"]
+[ext_resource type="Script" uid="uid://6qiwompx1cwc" path="res://entities/prototype/player/move.gd" id="5_wwex6"]
+[ext_resource type="Script" uid="uid://ckyenhcgndqjx" path="res://entities/prototype/player/fall.gd" id="7_8pji5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2bvf"]
+size = Vector2(18, 14)
+
+[node name="Player" type="CharacterBody2D" unique_id=1013827000]
+collision_mask = 2
+script = ExtResource("1_73j8v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=634492247]
+texture = ExtResource("1_r2bvf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1101014035]
+shape = SubResource("RectangleShape2D_r2bvf")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1977662029 node_paths=PackedStringArray("starting_state")]
+script = ExtResource("3_hsdm8")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1002591687 node_paths=PackedStringArray("move", "jump", "fall")]
+script = ExtResource("4_pwcx5")
+move = NodePath("../Move")
+jump = NodePath("../Jump")
+fall = NodePath("../Fall")
+
+[node name="Move" type="Node" parent="StateMachine" unique_id=1392692052 node_paths=PackedStringArray("idle", "jump", "fall")]
+script = ExtResource("5_wwex6")
+idle = NodePath("../Idle")
+jump = NodePath("../Jump")
+fall = NodePath("../Fall")
+ground_speed = 325.0
+metadata/_custom_type_script = "uid://d1kimhp5gr6wj"
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=1640686531 node_paths=PackedStringArray("move", "idle", "fall")]
+script = ExtResource("5_c8k1s")
+move = NodePath("../Move")
+idle = NodePath("../Idle")
+fall = NodePath("../Fall")
+jump_force = 400.0
+air_movement_speed = 400.0
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=1610922397 node_paths=PackedStringArray("move", "idle")]
+script = ExtResource("7_8pji5")
+move = NodePath("../Move")
+idle = NodePath("../Idle")
+fall_movement_speed = 400.0
+metadata/_custom_type_script = "uid://d1kimhp5gr6wj"
