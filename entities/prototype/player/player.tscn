@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://cnrk0nva2gm70" path="res://entities/prototype/player/state_machine.gd" id="3_hsdm8"]
 [ext_resource type="Script" uid="uid://cdsgadudm0w76" path="res://entities/prototype/player/idle.gd" id="4_pwcx5"]
 [ext_resource type="Script" uid="uid://chx470pcvta8v" path="res://entities/prototype/player/jump.gd" id="5_c8k1s"]
+[ext_resource type="Script" uid="uid://6qiwompx1cwc" path="res://entities/prototype/player/move.gd" id="5_wwex6"]
+[ext_resource type="Script" uid="uid://ckyenhcgndqjx" path="res://entities/prototype/player/fall.gd" id="7_8pji5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2bvf"]
 size = Vector2(18, 14)
@@ -26,7 +28,17 @@ starting_state = NodePath("Idle")
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1002591687]
 script = ExtResource("4_pwcx5")
 
+[node name="Move" type="Node" parent="StateMachine" unique_id=1392692052]
+script = ExtResource("5_wwex6")
+ground_speed = 525.0
+metadata/_custom_type_script = "uid://d1kimhp5gr6wj"
+
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1640686531]
 script = ExtResource("5_c8k1s")
 jump_force = 1000.0
 air_movement_speed = 600.0
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=1610922397]
+script = ExtResource("7_8pji5")
+fall_movement_speed = 600.0
+metadata/_custom_type_script = "uid://d1kimhp5gr6wj"
