@@ -22,6 +22,7 @@ func check_physics(delta: float) -> State:
 		movement = max(movement - acceleration, -max_speed)
 		
 	else:
+		movement = 0
 		return idle
 	
 	if movement != 0:
