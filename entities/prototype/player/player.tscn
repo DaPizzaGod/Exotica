@@ -25,20 +25,31 @@ shape = SubResource("RectangleShape2D_r2bvf")
 script = ExtResource("3_hsdm8")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=1002591687]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1002591687 node_paths=PackedStringArray("move", "jump", "fall")]
 script = ExtResource("4_pwcx5")
+move = NodePath("../Move")
+jump = NodePath("../Jump")
+fall = NodePath("../Fall")
 
-[node name="Move" type="Node" parent="StateMachine" unique_id=1392692052]
+[node name="Move" type="Node" parent="StateMachine" unique_id=1392692052 node_paths=PackedStringArray("idle", "jump", "fall")]
 script = ExtResource("5_wwex6")
+idle = NodePath("../Idle")
+jump = NodePath("../Jump")
+fall = NodePath("../Fall")
 ground_speed = 525.0
 metadata/_custom_type_script = "uid://d1kimhp5gr6wj"
 
-[node name="Jump" type="Node" parent="StateMachine" unique_id=1640686531]
+[node name="Jump" type="Node" parent="StateMachine" unique_id=1640686531 node_paths=PackedStringArray("move", "idle", "fall")]
 script = ExtResource("5_c8k1s")
-jump_force = 1000.0
+move = NodePath("../Move")
+idle = NodePath("../Idle")
+fall = NodePath("../Fall")
+jump_force = 400.0
 air_movement_speed = 600.0
 
-[node name="Fall" type="Node" parent="StateMachine" unique_id=1610922397]
+[node name="Fall" type="Node" parent="StateMachine" unique_id=1610922397 node_paths=PackedStringArray("move", "idle")]
 script = ExtResource("7_8pji5")
+move = NodePath("../Move")
+idle = NodePath("../Idle")
 fall_movement_speed = 600.0
 metadata/_custom_type_script = "uid://d1kimhp5gr6wj"

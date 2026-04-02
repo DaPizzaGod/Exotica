@@ -1,5 +1,9 @@
 extends State
 
+@export var move: State
+@export var idle: State
+@export var fall: State
+
 @export var jump_force: float
 @export var air_movement_speed: float
 
@@ -10,7 +14,7 @@ func check_physics(delta: float) -> State:
 	parent.velocity.y += gravity * delta
 	
 	if parent.velocity.y > 0:
-		return #fall
+		return fall
 		
 	var movement = Input.get_axis("left", "right") * air_movement_speed
 	
@@ -21,8 +25,8 @@ func check_physics(delta: float) -> State:
 	
 	if parent.is_on_floor():
 		if movement != 0:
-			return #move
-		return #idle
+			return move
+		return idle
 		
 	return null
 	

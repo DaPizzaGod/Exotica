@@ -1,5 +1,8 @@
 extends State
 
+@export var move: State
+@export var idle: State
+
 @export var fall_movement_speed: float
 func check_physics(delta: float) -> State:
 	
@@ -14,6 +17,6 @@ func check_physics(delta: float) -> State:
 	
 	if parent.is_on_floor():
 		if movement != 0:
-			return #move
-		return #idle
+			return move
+		return idle
 	return null
