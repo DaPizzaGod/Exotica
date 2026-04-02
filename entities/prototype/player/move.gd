@@ -4,9 +4,10 @@ extends State
 @export var jump: State
 @export var fall: State
 
-@export var max_speed: float
-@export var acceleration: float
+@export var ground_max_speed: float
+@export var ground_acceleration: float
 var movement: float
+
 func check_input(_event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
 		return jump
@@ -16,10 +17,10 @@ func check_physics(delta: float) -> State:
 	parent.velocity.y += gravity * delta
 	
 	if Input.is_action_pressed("right"):
-		movement = min(movement + acceleration, max_speed)
+		movement = min(movement + ground_acceleration, ground_max_speed)
 		
 	elif Input.is_action_pressed("left"):
-		movement = max(movement - acceleration, -max_speed)
+		movement = max(movement - ground_acceleration, -ground_max_speed)
 		
 	else:
 		movement = 0
@@ -27,6 +28,7 @@ func check_physics(delta: float) -> State:
 	
 	if movement != 0:
 		parent.sprite.flip_h = movement < 0
+		
 		
 	
 	parent.momentum_x = movement

@@ -10,7 +10,7 @@ extends State
 func enter() -> void:
 	#parent.momentum_x = move_toward(parent.velocity.x, 0.0, deceleration)
 	var tween := create_tween()
-	tween.tween_property(parent, "momentum_x", 0, 0.2)
+	tween.tween_property(parent, "momentum_x", 0, 0.1)
 
 func check_input(_event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
