@@ -30,6 +30,7 @@ script = ExtResource("4_pwcx5")
 move = NodePath("../Move")
 jump = NodePath("../Jump")
 fall = NodePath("../Fall")
+deceleration = 400.0
 
 [node name="Move" type="Node" parent="StateMachine" unique_id=1392692052 node_paths=PackedStringArray("idle", "jump", "fall")]
 script = ExtResource("5_wwex6")

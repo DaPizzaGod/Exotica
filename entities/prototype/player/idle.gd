@@ -5,8 +5,10 @@ extends State
 @export var jump: State
 @export var fall: State
 
+@export var deceleration: float
+
 func enter() -> void:
-	parent.velocity.x = 0
+	parent.velocity.x = move_toward(parent.velocity.x, 0.0, deceleration)
 
 func check_input(_event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
