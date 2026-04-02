@@ -30,7 +30,7 @@ script = ExtResource("4_pwcx5")
 move = NodePath("../Move")
 jump = NodePath("../Jump")
 fall = NodePath("../Fall")
-deceleration = 400.0
+deceleration = 350.0
 
 [node name="Move" type="Node" parent="StateMachine" unique_id=1392692052 node_paths=PackedStringArray("idle", "jump", "fall")]
 script = ExtResource("5_wwex6")
@@ -38,7 +38,7 @@ idle = NodePath("../Idle")
 jump = NodePath("../Jump")
 fall = NodePath("../Fall")
 max_speed = 350.0
-acceleration = 10000.0
+acceleration = 20.0
 metadata/_custom_type_script = "uid://d1kimhp5gr6wj"
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1640686531 node_paths=PackedStringArray("move", "idle", "fall")]

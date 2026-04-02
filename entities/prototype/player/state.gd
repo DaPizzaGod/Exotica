@@ -5,6 +5,7 @@ extends  Node
 
 var gravity:= 900
 
+
 var parent: CharacterBody2D
 
 func enter() -> void:

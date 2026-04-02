@@ -17,12 +17,17 @@ func check_physics(delta: float) -> State:
 	
 	if Input.is_action_pressed("right"):
 		movement = min(movement + acceleration, max_speed)
+		
 	elif Input.is_action_pressed("left"):
 		movement = max(movement - acceleration, -max_speed)
+		
 	else:
 		return idle
+	
+	if movement != 0:
+		parent.sprite.flip_h = movement < 0
 		
-	#flip sprite
+	
 	parent.velocity.x = movement
 	parent.move_and_slide()
 	
