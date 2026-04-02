@@ -4,9 +4,9 @@ extends State
 @export var jump: State
 @export var fall: State
 
+@export var max_speed: float
+@export var acceleration: float
 var direction: float
-
-@export var ground_speed: float
 func check_input(_event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
 		return jump
@@ -15,7 +15,7 @@ func check_input(_event: InputEvent) -> State:
 func check_physics(delta: float) -> State:
 	parent.velocity.y += gravity * delta
 	
-	var movement = Input.get_axis("left", "right") * ground_speed
+	var movement = Input.get_axis("left", "right") * max_speed
 	
 	if movement == 0:
 		return idle
