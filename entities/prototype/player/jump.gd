@@ -13,13 +13,16 @@ func enter() -> void:
 func check_physics(delta: float) -> State:
 	parent.momentum_y += gravity * delta
 	
-	if parent.velocity.y > 0:
+	
+	if not parent.coyote_jump:
+		print("not coyote jump")
+	if parent.velocity.y > 0 and not parent.coyote_jump:
 		return fall
 		
 	var movement = Input.get_axis("left", "right") * air_movement_speed
 	
-	#if movement != 0:
-		# flip character based on direction
+	if movement != 0:
+		parent.sprite.flip_h = movement < 0
 	parent.momentum_x = movement
 	parent.move_and_slide()
 	

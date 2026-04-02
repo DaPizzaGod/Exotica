@@ -9,8 +9,9 @@ extends State
 var movement: float
 
 func check_input(_event: InputEvent) -> State:
-	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
-		return jump
+	if parent.jump_available:
+		if Input.is_action_just_pressed("jump") or parent.jump_buffer:
+			return jump
 	return null
 
 func check_physics(delta: float) -> State:

@@ -10,8 +10,8 @@ func check_physics(delta: float) -> State:
 	
 	var movement = Input.get_axis("left", "right") * fall_movement_speed
 	
-	#if movement != 0:
-		#flip sprite
+	if movement != 0:
+		parent.sprite.flip_h = movement < 0
 	parent.momentum_x = movement
 	parent.move_and_slide()
 	

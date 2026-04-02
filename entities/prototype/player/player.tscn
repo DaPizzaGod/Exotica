@@ -14,6 +14,8 @@ size = Vector2(18, 14)
 [node name="Player" type="CharacterBody2D" unique_id=1013827000]
 collision_mask = 2
 script = ExtResource("1_73j8v")
+coyote_time = 0.5
+jump_buffer_time = 0.3
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=634492247]
 texture = ExtResource("1_r2bvf")
@@ -46,14 +48,14 @@ script = ExtResource("5_c8k1s")
 move = NodePath("../Move")
 idle = NodePath("../Idle")
 fall = NodePath("../Fall")
-jump_force = 200.0
-air_movement_speed = 400.0
+jump_force = 150.0
+air_movement_speed = 200.0
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=1610922397 node_paths=PackedStringArray("move", "idle")]
 script = ExtResource("7_8pji5")
 move = NodePath("../Move")
 idle = NodePath("../Idle")
-fall_movement_speed = 400.0
+fall_movement_speed = 200.0
 metadata/_custom_type_script = "uid://d1kimhp5gr6wj"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=323139327]

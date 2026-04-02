@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 	var new_state = current_state.check_physics(delta)
 	if new_state:
 		change_state(new_state)
+	
 		
 func _input(event: InputEvent) -> void:
 	var new_state = current_state.check_input(event)
