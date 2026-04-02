@@ -4,7 +4,7 @@ extends Node
 
 var current_state: State
 
-func start_state_machine(parent: Player) -> void:
+func start_state_machine(parent: CharacterBody2D) -> void:
 	for i in get_children():
 		i.parent = parent
 		
@@ -18,13 +18,16 @@ func change_state(new_state: State) -> void:
 	current_state.enter()
 
 func _physics_process(delta: float) -> void:
+	var new_state = current_state.check_physics(delta)
 	if new_state:
 		change_state(new_state)
 		
 func _input(event: InputEvent) -> void:
+	var new_state = current_state.check_input(event)
 	if new_state:
 		change_state(new_state)
 		
 func _process(delta: float) -> void:
+	var new_state = current_state.check_frame(delta)
 	if new_state:
 		change_state(new_state)

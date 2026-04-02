@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://blqrlj6585nas" path="res://entities/prototype/player/player.gd" id="1_73j8v"]
 [ext_resource type="Texture2D" uid="uid://dfblpy0bwqwoe" path="res://entities/prototype/player/player_rectangle.png" id="1_r2bvf"]
 [ext_resource type="Script" uid="uid://cnrk0nva2gm70" path="res://entities/prototype/player/state_machine.gd" id="3_hsdm8"]
+[ext_resource type="Script" uid="uid://cdsgadudm0w76" path="res://entities/prototype/player/idle.gd" id="4_pwcx5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2bvf"]
 size = Vector2(18, 14)
@@ -18,3 +19,6 @@ shape = SubResource("RectangleShape2D_r2bvf")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1977662029]
 script = ExtResource("3_hsdm8")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1002591687]
+script = ExtResource("4_pwcx5")
