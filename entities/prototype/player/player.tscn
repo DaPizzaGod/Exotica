@@ -36,7 +36,7 @@ script = ExtResource("5_wwex6")
 idle = NodePath("../Idle")
 jump = NodePath("../Jump")
 fall = NodePath("../Fall")
-ground_speed = 525.0
+ground_speed = 325.0
 metadata/_custom_type_script = "uid://d1kimhp5gr6wj"
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1640686531 node_paths=PackedStringArray("move", "idle", "fall")]
@@ -45,11 +45,11 @@ move = NodePath("../Move")
 idle = NodePath("../Idle")
 fall = NodePath("../Fall")
 jump_force = 400.0
-air_movement_speed = 600.0
+air_movement_speed = 400.0
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=1610922397 node_paths=PackedStringArray("move", "idle")]
 script = ExtResource("7_8pji5")
 move = NodePath("../Move")
 idle = NodePath("../Idle")
-fall_movement_speed = 600.0
+fall_movement_speed = 400.0
 metadata/_custom_type_script = "uid://d1kimhp5gr6wj"
