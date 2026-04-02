@@ -8,10 +8,10 @@ extends State
 @export var air_movement_speed: float
 
 func enter() -> void:
-	parent.velocity.y = -jump_force
+	parent.momentum_y = -jump_force
 	
 func check_physics(delta: float) -> State:
-	parent.velocity.y += gravity * delta
+	parent.momentum_y += gravity * delta
 	
 	if parent.velocity.y > 0:
 		return fall
@@ -20,7 +20,7 @@ func check_physics(delta: float) -> State:
 	
 	#if movement != 0:
 		# flip character based on direction
-	parent.velocity.x = movement
+	parent.momentum_x = movement
 	parent.move_and_slide()
 	
 	if parent.is_on_floor():

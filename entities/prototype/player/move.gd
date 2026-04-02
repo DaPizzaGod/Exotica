@@ -28,8 +28,8 @@ func check_physics(delta: float) -> State:
 		parent.sprite.flip_h = movement < 0
 		
 	
-	parent.velocity.x = movement
-	parent.move_and_slide()
+	parent.momentum_x = movement
+	
 	
 	if !parent.is_on_floor():
 		return fall
